@@ -1,0 +1,3 @@
+[submodule "ext/gmock"]
+	path = ext/gmock
+	url = https://github.com/ksamdev/gmock
