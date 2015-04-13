@@ -1,4 +1,4 @@
-#include "ch1/fwd.h"
+#include "ch1/s1/fwd.h"
 
 #include "gtest/gtest.h"
 
@@ -6,6 +6,8 @@
 #include <initializer_list>
 #include <string>
 #include <utility>
+
+using namespace ch1_s1;
 
 TEST(BinaryString, Numbers) {
     using TItem = std::pair<size_t, std::string>;

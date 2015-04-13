@@ -1,4 +1,6 @@
-#include "ch1/fwd.h"
+#include "ch1/s1/fwd.h"
+
+namespace ch1_s1 {
 
 std::string BinaryString(size_t value) {
     size_t size {static_cast<size_t>(value ? 0 : 1)};
@@ -12,4 +14,6 @@ std::string BinaryString(size_t value) {
         }
     }
     return std::move(result);
+}
+
 }
