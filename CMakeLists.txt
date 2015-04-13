@@ -10,12 +10,6 @@ if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "Debug")
 endif()
 
-# -- tools
-find_program(SED_TOOL NAMES sed)
-if (NOT SED_TOOL)
-    message(FATAL_ERROR "Unable to find sed - used in unit-tests")
-endif(NOT SED_TOOL)
-
 
 # -- external libs
 add_subdirectory(ext)
@@ -34,10 +28,14 @@ option(STUDY "STUDY" OFF)   # build source form study folders
 
 
 # -- includes
-include_directories("${PROJECT_SOURCE_DIR}")
-include_directories("${PROJECT_BINARY_DIR}")
+include_directories(
+    "${PROJECT_SOURCE_DIR}/src"
+)
 
+
+# -- enable unit-testing
 enable_testing()
 
+
 # -- builds
-add_subdirectory(ch1)
+add_subdirectory(src)

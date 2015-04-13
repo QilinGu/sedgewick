@@ -1,6 +1,0 @@
-if (STUDY)
-    add_subdirectory(study)
-else()
-    add_subdirectory(src)
-endif()
-add_subdirectory(ut)

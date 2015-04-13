@@ -1,18 +1,18 @@
-#include "ch1/s1/fwd.h"
-
-#include "gtest/gtest.h"
+#include "ch1/s1/ex_9.h"
 
 #include <cstddef>
 #include <initializer_list>
 #include <string>
 #include <utility>
 
-using namespace ch1_s1;
+#include <gtest/gtest.h>
+
+using namespace ch1::s1::ex9;
 
 TEST(BinaryString, Numbers) {
-    using TItem = std::pair<size_t, std::string>;
-    using TData = std::initializer_list<TItem>;
-    TData data {
+    using Item = std::pair<size_t, std::string>;
+    using Data = std::initializer_list<Item>;
+    Data data {
           {0, "0"}
         , {1, "1"}
         , {2, "10"}
@@ -30,9 +30,9 @@ TEST(BinaryString, Numbers) {
         , {14, "1110"}
         , {15, "1111"}
     };
-    for(auto &d : data) {
-        std::string bin_str {BinaryString(d.first)};
-        EXPECT_STREQ(bin_str.c_str(), d.second.c_str()) << d.first;
+    for(auto &item : data) {
+        std::string representation {BinaryString(item.first)};
+        EXPECT_STREQ(representation.c_str(), item.second.c_str()) << item.first;
     }
 }
 

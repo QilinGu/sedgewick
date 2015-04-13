@@ -1,3 +1,3 @@
 add_library(ch1_s1 STATIC
-    ex_9.cpp
+    ex_9.cc
 )

@@ -1,6 +1,0 @@
-foreach(ex 9)
-    set(test "ut_ch1_s1_ex_${ex}")
-    add_executable(${test} ex_9.cpp)
-    target_link_libraries(${test} gtest ch1_s1)
-    add_test(${test} ${test})
-endforeach(ex)
