@@ -38,3 +38,4 @@ include_directories("${PROJECT_BINARY_DIR}")
 enable_testing()
 
 # -- builds
+add_subdirectory(ch1)
