@@ -6,6 +6,7 @@
 ## Outline
 
 - [Overview](#overview)
+- [Tree](#tree)
 - [Build](#build)
 - [Test](#test)
 - [Study](#study)
@@ -15,13 +16,46 @@
 
 Problems and solutions for Algorithms 4th Ed by Robert Sedgewick.
 
-The project is written in C++ rather than Java.  Problems source code is
-available in `chN/sM/src` (chapter `N`, section `M`) folders.  Every problem is
-covered with unit-tests.
+The project is written in C++ using [Google Style](https://google-styleguide.googlecode.com/svn/trunk/cppguide.html).
+
+The source code is available in `src/chN/sM` folders where `N` denotes a chapter
+and `M` is corresponding section.
+
+Every chapter, section, exercise has its own unique namespace, e.g.
+`ch1::s1::ex9`.  The project uses
+[Google Test](https://code.google.com/p/googletest/) and
+[Google Mock](https://code.google.com/p/googlemock/) libraries to cover
+every problem with unit-tests.
 
 There is a special `cmake` rule for studying called `STUDY`.  It allows one to
-use templates from `chN/sM/study`, fill in the code and run unit-test to re-do
-the exercise.
+use templates from `src/chN/sM/study`, fill in the code and run unit-test to
+re-do exercises.
+
+
+## Tree
+
+Source code is put into `src/ch*/s*` folders. Every problem has at least three
+files:
+
+  - `ex_N.h` interface
+  - `ex_N.cc` implementation
+  - `ex_N_test.cc` unit-test(s)
+
+Exercise implementation templates are available in `src/ch*/s*/study`.
+
+Example:
+
+```sh
+% tree -P 'ex_9*.h|ex_9*.cc' src
+src
+└── ch1
+    └── s1
+        ├── ex_9.cc         # implementation
+        ├── ex_9.h          # interface
+        ├── ex_9_test.cc    # unit-test
+        └── study
+            └── ex_9.cc     # study template (implementation)
+```
 
 
 ## Build
@@ -33,13 +67,13 @@ First create a folder for the build and generate Makefiles:
 % cmake ..
 ```
 
-The entire package can be built with single command:
+The entire package can be built with a single command:
 
 ```sh
 % make
 ```
 
-It is a good idea to run compilation in parallel with `-j 2` (two processes)
+It is a good idea to run the compilation in parallel with `-j 2` (two processes)
 option.
 
 For clarity of the output external libraries can be built first:
@@ -54,10 +88,10 @@ Then build the rest of the code:
 % make -j 2
 ```
 
-Or build specific section:
+Or build a single section:
 
 ```sh
-% make -j 2 -C ch1/s1
+% make -j 2 -C src/ch1/s1
 ```
 
 
@@ -70,25 +104,25 @@ command to run all tests from the build folder:
 % make test
 ```
 
-One may run only tests for specific section:
+One may run only tests for a single section:
 
 ```sh
-% make test -C ch1/s1
+% make test -C src/ch1/s1
 ```
 
-All unit tests can be found in `chN/sM/ut` folder where `chN/sM` must be replaced
-with corresponding chapter and section number, e.g. `ch1/s1` - chapter 1,
-section 1.
+All unit tests can be found in `src/chN/sM/` folder.  Test executables have `ut_`
+prefix.
 
 
 ## Study
 
-The project has a special `cmake` rule `STUDY` that can be used to re-do
-exercises.  The rule uses code templates from `ch*/s*/study` folders instead of
-`ch*/s*/src`.
+The project has a special `cmake` rule `STUDY` that can be used to re-do some
+exercises.  The rule builds source code in `src/ch*/s*/study` folders instead of
+`src/ch*/s*/src`.  The `study` folders hold empty interface templates for
+exercise.
 
-Feel free to fill code in these templates but **DO NOT COMMIT** `study` folders.
-They are designed to stay empty for studes.
+Feel free to fill code in these templates but **DO NOT COMMIT** the `study`
+folders.  They are designed to remain empty for studies.
 
 It is advised to build studies in a separate build folder:
 
@@ -103,6 +137,6 @@ if `make test` is run.  Therefore it is advised to work on one section at a
 time, e.g.:
 
 ```sh
-% make -j 2 -C ch1/s1
-% make test -C ch1/s1
+% make -j 2 -C src/ch1/s1
+% make test -C src/ch1/s1
 ```
