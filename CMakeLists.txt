@@ -30,6 +30,8 @@ include_directories(
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wextra -Werror")
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g3 -O0")
 
+option(STUDY "STUDY" OFF)   # build source form study folders
+
 
 # -- includes
 include_directories("${PROJECT_SOURCE_DIR}")
