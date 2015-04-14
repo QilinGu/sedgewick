@@ -1,3 +1,5 @@
+// Copyright 2015 Samvel Khalatyan
+
 #include "ch1/s1/ex_9.h"
 
 #include <cstddef>
@@ -5,9 +7,9 @@
 #include <string>
 #include <utility>
 
-#include <gtest/gtest.h>
+#include "gtest/gtest.h"
 
-using namespace ch1::s1::ex9;
+using ch1::s1::ex9::BinaryString;
 
 TEST(BinaryString, Numbers) {
     using Item = std::pair<size_t, std::string>;
@@ -30,7 +32,7 @@ TEST(BinaryString, Numbers) {
         , {14, "1110"}
         , {15, "1111"}
     };
-    for(auto &item : data) {
+    for (auto &item : data) {
         std::string representation {BinaryString(item.first)};
         EXPECT_STREQ(representation.c_str(), item.second.c_str()) << item.first;
     }

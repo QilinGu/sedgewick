@@ -1,5 +1,7 @@
-#ifndef SEDGEWICK_CH1_S1_EX11_H_
-#define SEDGEWICK_CH1_S1_EX11_H_
+// Copyright 2015 Samvel Khalatyan
+
+#ifndef CH1_S1_EX_11_H_
+#define CH1_S1_EX_11_H_
 
 #include <iosfwd>
 #include <vector>
@@ -17,4 +19,4 @@ std::ostream &operator <<(std::ostream &, const BoolMatrix &);
 }  // namespace s1
 }  // namespace ch1
 
-#endif
+#endif  // CH1_S1_EX_11_H_

@@ -1,5 +1,7 @@
-#ifndef SEDGEWICK_CH1_S1_EX9_H_
-#define SEDGEWICK_CH1_S1_EX9_H_
+// Copyright 2015 Samvel Khalatyan
+
+#ifndef CH1_S1_EX_9_H_
+#define CH1_S1_EX_9_H_
 
 #include <cstddef>
 #include <string>
@@ -17,4 +19,4 @@ std::string BinaryString(size_t);
 }  // namespace s1
 }  // namespace ch1
 
-#endif
+#endif  // CH1_S1_EX_9_H_
