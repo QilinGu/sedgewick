@@ -3,7 +3,6 @@
 #include "ch1/s1/ex_20.h"
 
 #include <cmath>
-
 #include <limits>
 
 #include "gtest/gtest.h"
