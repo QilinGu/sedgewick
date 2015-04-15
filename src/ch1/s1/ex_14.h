@@ -8,7 +8,7 @@ namespace s1 {
 namespace ex14 {
 
 // returns largest int not larger than the base-2 logarithm of N
-int Lg(int);
+int Lg(int /*value*/);
 
 }  // namespace ex14
 }  // namespace s1

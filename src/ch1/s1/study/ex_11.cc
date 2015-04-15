@@ -1,3 +1,5 @@
+// Copyright 2015 Samvel Khalatyan
+
 #include "ch1/s1/ex_11.h"
 
 #include <ostream>

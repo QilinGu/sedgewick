@@ -14,7 +14,7 @@ int Lg(int value) {
         return std::numeric_limits<int>::min();
     }
     int result {0};
-    while(value >>= 1) {
+    while (value >>= 1) {
         ++result;
     }
     return result;

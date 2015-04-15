@@ -7,8 +7,8 @@ namespace s1 {
 namespace ex14 {
 
 // returns min interger value if value is invlid log argument
-int Lg(int) {
-    return 0;
+int Lg(int value) {
+    return value;
 }
 
 }  // namespace ex14
