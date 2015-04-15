@@ -9,42 +9,42 @@ using ch1::s1::ex22::BinarySearch;
 TEST(BinarySearch, SingleElement) {
     int array[] {1};
     BinarySearch search(array, sizeof(array) / sizeof(array[0]));
-    EXPECT_EQ(search(0), nullptr);
-    EXPECT_EQ(search(1), array);
-    EXPECT_EQ(search(2), nullptr);
+    EXPECT_EQ(search(0), -1);
+    EXPECT_EQ(search(1), 0);
+    EXPECT_EQ(search(2), -1);
 }
 
 TEST(BinarySearch, TwoElements) {
     int array[] {1, 3};
     BinarySearch search(array, sizeof(array) / sizeof(array[0]));
-    EXPECT_EQ(search(0), nullptr);
-    EXPECT_EQ(search(1), array);
-    EXPECT_EQ(search(2), nullptr);
-    EXPECT_EQ(search(3), array + 1);
-    EXPECT_EQ(search(4), nullptr);
+    EXPECT_EQ(search(0), -1);
+    EXPECT_EQ(search(1), 0);
+    EXPECT_EQ(search(2), -1);
+    EXPECT_EQ(search(3), 1);
+    EXPECT_EQ(search(4), -1);
 }
 
 TEST(BinarySearch, ThreeElements) {
     int array[] {1, 3, 5};
     BinarySearch search(array, sizeof(array) / sizeof(array[0]));
-    EXPECT_EQ(search(0), nullptr);
-    EXPECT_EQ(search(1), array);
-    EXPECT_EQ(search(2), nullptr);
-    EXPECT_EQ(search(3), array + 1);
-    EXPECT_EQ(search(4), nullptr);
-    EXPECT_EQ(search(5), array + 2);
-    EXPECT_EQ(search(6), nullptr);
+    EXPECT_EQ(search(0), -1);
+    EXPECT_EQ(search(1), 0);
+    EXPECT_EQ(search(2), -1);
+    EXPECT_EQ(search(3), 1);
+    EXPECT_EQ(search(4), -1);
+    EXPECT_EQ(search(5), 2);
+    EXPECT_EQ(search(6), -1);
 }
 
 TEST(BinarySearch, SeveralElements) {
     int array[] {2, 3, 5, 8, 10, 12, 13, 14};
     BinarySearch search(array, sizeof(array) / sizeof(array[0]));
-    EXPECT_EQ(search(array[0]), array);
+    EXPECT_EQ(search(array[0]), 0);
     for (size_t index {1}; index < search.size(); ++index) {
         for (int value {array[index - 1] + 1}; value < array[index]; ++value) {
-            EXPECT_EQ(search(value), nullptr);
+            EXPECT_EQ(search(value), -1);
         }
-        EXPECT_EQ(search(array[index]), array + index);
+        EXPECT_EQ(static_cast<size_t>(search(array[index])), index);
     }
 }
 

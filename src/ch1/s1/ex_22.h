@@ -11,18 +11,20 @@ namespace ch1 {
 namespace s1 {
 namespace ex22 {
 
-// finds a value in the array using binary search algorithm:
+// finds the rank (position) of a value in the array using binary search
+// algorithm:
 //
 //      int array[] {1, 3, 5, 7};
 //      size_t size {sizeof(array) / sizeof(array[0])};
 //      BinarySearch search {array, 0, size};
-//      const int *element {search(5)};
+//      auto rank = search(5);
 //
 // trace() accessor must return the search trace
 class BinarySearch {
 public:
     using Stats = std::pair<size_t, size_t>;
     using Trace = std::list<Stats>;
+    using Rank = int;
 
 public:
     BinarySearch(const int *array, size_t size)
@@ -32,7 +34,7 @@ public:
     size_t size() const {
         return kSize_;
     }
-    const int *operator()(int value) {
+    Rank operator()(int value) {
         trace_.clear();
         return Find(value, 0, kSize_);
     }
@@ -41,7 +43,7 @@ public:
     }
 
 private:
-    const int *Find(int value, size_t lo, size_t hi);
+    Rank Find(int value, size_t lo, size_t hi);
 
 private:
     const int *const kArray_;

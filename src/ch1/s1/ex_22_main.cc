@@ -55,10 +55,11 @@ int main(int argc, char *argv[]) {
         BinarySearch search(array.data(), array.size());
         cout << "input value in range (0, 100): ";
         for (int value {0}; cin >> value; ) {
-            if (const int *element {search(value)}) {
-                cout << "found at " << (element - array.data()) << endl;
-            } else {
+            BinarySearch::Rank rank {search(value)};
+            if (rank == -1) {
                 cout << "missing" << endl;
+            } else {
+                cout << "found at " << rank << endl;
             }
             cout << "trace:" << endl;
             cout << search.trace() << endl;

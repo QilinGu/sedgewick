@@ -7,14 +7,14 @@ namespace ch1 {
 namespace s1 {
 namespace ex22 {
 
-const int *BinarySearch::Find(int value, size_t lo, size_t hi) {
+BinarySearch::Rank BinarySearch::Find(int value, size_t lo, size_t hi) {
     trace_.push_back({lo, hi});
     if (lo >= hi) {
-        return nullptr;
+        return -1;
     }
     const int *pivot {kArray_ + lo + (hi - lo) / 2};
     if (value == *pivot) {
-        return pivot;
+        return pivot - kArray_;
     } else if (value < *pivot) {
         return Find(value, lo, pivot - kArray_);
     } else {
