@@ -4,12 +4,14 @@ else ()
     add_library(ch1_s1 STATIC
         ex_9.cc
         ex_11.cc ex_13.cc ex_14.cc ex_15.cc
+        ex_20.cc
     )
 endif()
 
 foreach(ex
     9
-    11 13 14 15)
+    11 13 14 15
+    20)
     set(test "ut_ex_${ex}")
     add_executable(${test} ex_${ex}_test.cc)
     target_link_libraries(${test} gtest ch1_s1)
