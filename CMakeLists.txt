@@ -11,6 +11,13 @@ if (NOT CMAKE_BUILD_TYPE)
 endif()
 
 
+# -- external packages
+find_package(Boost REQUIRED)
+include_directories(
+    ${Boost_INCLUDE_DIRS}
+)
+
+
 # -- external libs
 add_subdirectory(ext)
 
