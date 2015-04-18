@@ -23,7 +23,8 @@ ostream &operator<<(ostream &os, const Stats &stats) {
 }
 
 int main(int argc, char *argv[]) {
-    Stats (*Factory)(int, int) {Binomial}
+    Stats (*Factory)(int, int);
+    Factory = Binomial;
     if (1 < argc) {
         if (0 == strcmp(argv[1], "--quick")) {
             Factory = QuickBinomial;
