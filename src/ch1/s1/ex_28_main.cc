@@ -1,6 +1,6 @@
 // Copyright 2015 Samvel Khalatyan
 
-#include "ch1/s1/ex_23.h"
+#include "ch1/s1/ex_28.h"
 
 #include <algorithm>
 #include <fstream>
@@ -8,8 +8,11 @@
 #include <string>
 #include <vector>
 
+#include "ch1/s1/ex_23.h"
+
 using ch1::s1::ex23::BinarySearch;
 using ch1::s1::ex23::Data;
+using ch1::s1::ex28::RemoveDuplicates;
 
 using std::cin;
 using std::cout;
@@ -38,15 +41,9 @@ int main(int argc, char *argv[]) {
     } else {
         Data data {ReadData(argv[1])};
         std::sort(data.begin(), data.end());
-        using Checker = bool (*)(bool);
-        bool (*checker)(bool);
-        if (2 < argc and '-' == argv[2][0]) {
-            checker = [](bool v) -> bool { return v; };
-        } else {
-            checker = [](bool v) -> bool { return not v; };
-        }
+        data = RemoveDuplicates(data);
         for (int value; cin >> value; ) {
-            if (checker(BinarySearch(value, data))) {
+            if (not BinarySearch(value, data)) {
                 cout << value << endl;
             }
         }
